@@ -3,6 +3,7 @@ import Learn from './sections/Learn';
 import Review from './sections/Review';
 import Practice from './sections/Practice';
 import Test from './sections/Test';
+import CheatSheet from './sections/CheatSheet';
 
 export default function App() {
   const [activePhase, setActivePhase] = useState('learn');
@@ -14,6 +15,7 @@ export default function App() {
     { id: 'review', icon: '🔍', label: 'Review', component: Review },
     { id: 'practice', icon: '✏️', label: 'Practice', component: Practice },
     { id: 'test', icon: '🧪', label: 'Test', component: Test },
+    { id: 'cheatsheet', icon: '📄', label: 'Cheat Sheet', component: CheatSheet },
   ];
 
   const subtabs = {
