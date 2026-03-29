@@ -1,4 +1,15 @@
 import Card from '../components/Card';
+import { TwoSidesMatrix, CLVLevers, STPFlow, ProductLineComparison, FullFunnelDiagram, FreemiumTradeoff, ConjointImportance } from '../components/Charts';
+
+const CHART_MAP = {
+  'two-sides': TwoSidesMatrix,
+  'clv-levers': CLVLevers,
+  'stp': STPFlow,
+  'product-line': ProductLineComparison,
+  'funnel': FullFunnelDiagram,
+  'freemium': FreemiumTradeoff,
+  'conjoint': ConjointImportance,
+};
 
 const frameworks = [
   {
@@ -14,6 +25,7 @@ const frameworks = [
       'Lost Cause (low/low): Divest, fire, or exit the relationship',
     ],
     example: 'Kanthal AB: Large industrial customers demanded custom orders, rush deliveries, and heavy discounts → mapped to Free Riders and Lost Causes despite large revenue. Small accounts with standard orders at list prices = Stars. Action: fired largest accounts, profitability doubled.',
+    chartId: 'two-sides',
   },
   {
     id: 'clv-framework',
@@ -28,6 +40,7 @@ const frameworks = [
       '1% retention = 4.9% firm value | 1% margin = 1.1% | 1% AC = 0.1%',
     ],
     example: 'Amazon Prime: Bundling (Prime = shipping + video + music + shopping) reduced churn vs non-Prime customers. Prime members spend 2-3× more annually. This is Retention (bundling reduces churn) AND Expansion (Prime drives more purchases) simultaneously.',
+    chartId: 'clv-levers',
   },
   {
     id: 'stp-process',
@@ -43,6 +56,7 @@ const frameworks = [
       'Behavioral variables for exam: usage intensity AND consumption frequency (not lifestyle, not marital status)',
     ],
     example: 'Credit card market: Demographic segmentation (age 25-35) misses the key distinction. Behavioral segmentation reveals Transactors (pay in full monthly, low revenue) vs Revolvers (carry balance, high interest revenue). Same demographic, completely different CLV. This is why behavioral segmentation is often most actionable.',
+    chartId: 'stp',
   },
   {
     id: 'evc-framework',
@@ -73,6 +87,7 @@ const frameworks = [
       'Perverse targeting: can design a pricing where segments swap products (high-type buys low product)',
     ],
     example: 'Dell laptops: Single product (3.5GHz at $1,500 to all 100 customers) = $150,000 profit. Product line (2GHz at $500 for personal + 3.5GHz at $900 for business) = $66,000. Single product wins by $84,000. Reason: the 2GHz laptop is so valuable to business users ($1,600 WTP) that the IC constraint forces a $1,100 discount on the premium product — far outweighing market expansion benefits.',
+    chartId: 'product-line',
   },
   {
     id: 'advertising-strategy',
@@ -89,6 +104,7 @@ const frameworks = [
       'Full funnel: Brand (top) + Performance (bottom) are complementary, not substitutes',
     ],
     example: 'TikTok advertising case: Brands running both brand awareness (full funnel) AND performance ads outperformed single-channel campaigns. Brand ads increased recall and association, making performance ads more effective because the brand was already top-of-mind when the conversion prompt appeared. This is the "1+1=3" full funnel complementarity effect.',
+    chartId: 'funnel',
   },
   {
     id: 'promotion-framework',
@@ -105,6 +121,7 @@ const frameworks = [
       'Control freemium cannibalization: add "bad" to free tier — Spotify model (ads + offline restrictions)',
     ],
     example: 'Spotify: Free tier with ads and no offline listening = controlled freemium. The ads are the "bad" that makes premium attractive. Without ads in the free tier, there\'d be less reason to upgrade. Spotify must also manage: too-good free = no upgrades, too-bad free = no users. Their data suggests the right balance is reached when ~5-10% of free users convert to premium annually.',
+    chartId: 'freemium',
   },
   {
     id: 'conjoint-process',
@@ -121,6 +138,7 @@ const frameworks = [
       'Utils/$ = utility change / price change between two known price points',
     ],
     example: 'Air Fryer study (actual exam format): Price range = 1100−200 = 900 (most important). Material range = 400−250 = 150 (least important). Consumer comparison: Philips 4qt Stainless 1800W $89 utility = 3000 vs De\'Longhi 2qt Aluminum 1700W $119 utility = 2600 → consumer prefers Philips. Price parity calculation gives Philips price parity point at $114 vs De\'Longhi at $159.',
+    chartId: 'conjoint',
   },
 ];
 
@@ -164,6 +182,16 @@ export default function Frameworks({ search }) {
               <p className="text-xs text-blue-200 leading-relaxed">{fw.example}</p>
             </div>
           )}
+
+          {fw.chartId && (() => {
+            const ChartComponent = CHART_MAP[fw.chartId];
+            return ChartComponent ? (
+              <div className="mt-3">
+                <p className="text-xs text-purple-400 font-semibold mb-2">VISUAL</p>
+                <ChartComponent />
+              </div>
+            ) : null;
+          })()}
         </Card>
       ))}
     </div>

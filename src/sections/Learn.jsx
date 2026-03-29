@@ -1,5 +1,20 @@
 import { useState } from 'react';
 import Card from '../components/Card';
+import { TwoSidesMatrix, CLVLevers, CLVYearBars, FearAppealsU, EVCSpectrum, ProductLineComparison, ConjointImportance, FreemiumTradeoff, STPFlow, FullFunnelDiagram, ICConstraintVisual } from '../components/Charts';
+
+const CHART_MAP = {
+  'two-sides': TwoSidesMatrix,
+  'clv-levers': CLVLevers,
+  'clv-bars': CLVYearBars,
+  'fear': FearAppealsU,
+  'evc': EVCSpectrum,
+  'product-line': ProductLineComparison,
+  'conjoint': ConjointImportance,
+  'freemium': FreemiumTradeoff,
+  'stp': STPFlow,
+  'funnel': FullFunnelDiagram,
+  'ic-constraint': ICConstraintVisual,
+};
 
 const blocks = {
   block1: {
@@ -37,6 +52,7 @@ const blocks = {
           'Bundling reduces churn up to 50% (Cox: TV+HSI+Phone = 1.4% churn vs TV alone = 3.0%)',
           'Five reasons customers get more profitable over time: base profit, cross-buy, lower service cost, referrals, price premiums',
         ],
+        chartIds: ['clv-bars', 'clv-levers'],
       },
       {
         id: 'two-sides-value',
@@ -52,6 +68,7 @@ const blocks = {
           'Kanthal: biggest accounts by revenue were unprofitable; smallest were Stars',
           'Exam application: when asked about customer strategy, first classify the quadrant, then prescribe',
         ],
+        chartIds: ['two-sides'],
       },
       {
         id: 'segmentation-targeting-positioning',
@@ -69,6 +86,7 @@ const blocks = {
           'Simpson\'s Paradox: always segment before drawing conclusions from aggregate data',
           'Exam: behavioral segmentation variables = usage intensity AND consumption frequency (a and c, not b and d)',
         ],
+        chartIds: ['stp'],
       },
     ],
   },
@@ -90,6 +108,7 @@ const blocks = {
           'IC constraint: WTP_high(high) − P_high ≥ WTP_high(low) − P_low',
           'When cannibalization cost > market expansion benefit, single product wins',
         ],
+        chartIds: ['product-line'],
       },
       {
         id: 'conjoint-analysis',
@@ -107,6 +126,7 @@ const blocks = {
           'Utils-per-dollar = utility change / price change between two known price levels',
           'Common exam trap: comparing individual attribute utilities instead of total product utility',
         ],
+        chartIds: ['conjoint'],
       },
       {
         id: 'pricing-strategy',
@@ -126,6 +146,7 @@ const blocks = {
           'Price discrimination under competition intensifies price wars (competing per segment, not per market)',
           'Shrinkflation: short-term fix, long-term trust cost',
         ],
+        chartIds: ['evc'],
       },
       {
         id: 'product-line-pricing',
@@ -144,6 +165,7 @@ const blocks = {
           'Product line beats single only when market expansion > cannibalization cost',
           'Consumer surplus = WTP − Price; each segment buys whichever product maximizes their surplus',
         ],
+        chartIds: ['ic-constraint', 'product-line'],
       },
     ],
   },
@@ -167,6 +189,7 @@ const blocks = {
           'Full funnel: Brand (awareness) + Performance (conversion) are complementary, not substitutes',
           'TikTok case: brand campaigns increased performance ad conversion — evidence of complementarity',
         ],
+        chartIds: ['fear', 'funnel'],
       },
       {
         id: 'promotions-strategy',
@@ -184,6 +207,7 @@ const blocks = {
           'Control freemium cannibalization by adding a "bad" to free tier (ads, limits) — Spotify model',
           'Exam question format: "describe THREE rationales for freemium and the key tradeoff"',
         ],
+        chartIds: ['freemium'],
       },
       {
         id: 'distribution-channels',
@@ -285,6 +309,16 @@ function ExpandableTopicCard({ topic, search }) {
               <div className="bg-green-950/40 border border-green-800 rounded-lg p-4">
                 <p className="text-xs font-semibold text-green-400 mb-2">WORKED EXAMPLE</p>
                 <p className="text-sm text-green-100 leading-relaxed font-mono whitespace-pre-line">{topic.workedExample}</p>
+              </div>
+            )}
+
+            {topic.chartIds && topic.chartIds.length > 0 && (
+              <div className="space-y-4">
+                <p className="text-xs font-semibold text-purple-400">VISUAL</p>
+                {topic.chartIds.map(id => {
+                  const ChartComponent = CHART_MAP[id];
+                  return ChartComponent ? <ChartComponent key={id} /> : null;
+                })}
               </div>
             )}
 

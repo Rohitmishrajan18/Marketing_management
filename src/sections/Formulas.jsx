@@ -1,4 +1,5 @@
 import Card from '../components/Card';
+import { CLVYearBars, CLVLevers, ConjointImportance, EVCSpectrum, ICConstraintVisual, ProductLineComparison, FreemiumTradeoff } from '../components/Charts';
 
 const formulas = [
   {
@@ -31,6 +32,7 @@ const formulas = [
           </p>
         </div>
         <p className="text-xs text-amber-400">Key trap: r^(t-1) is CUMULATIVE — Year 3 uses r², not just r</p>
+        <CLVYearBars />
       </div>
     ),
   },
@@ -102,6 +104,7 @@ const formulas = [
           </p>
         </div>
         <p className="text-xs text-amber-400">Exam: retention improvement is ALWAYS the best lever</p>
+        <CLVLevers />
       </div>
     ),
   },
@@ -154,6 +157,7 @@ const formulas = [
           </p>
         </div>
         <p className="text-xs text-amber-400">Trap: Importance is the RANGE, not the highest value</p>
+        <ConjointImportance />
       </div>
     ),
   },
@@ -232,6 +236,7 @@ const formulas = [
           </p>
         </div>
         <p className="text-xs text-amber-400">EVC is the CEILING, not the recommended price</p>
+        <EVCSpectrum refValue={10000} diffValue={11000} cost={8000} />
       </div>
     ),
   },
@@ -258,6 +263,8 @@ const formulas = [
           </p>
         </div>
         <p className="text-xs text-amber-400 font-semibold">Cannibalization Cost = WTP_high − P_high = $1,100 discount forced on business users</p>
+        <ICConstraintVisual />
+        <ProductLineComparison />
       </div>
     ),
   },
@@ -314,6 +321,7 @@ const formulas = [
             Solution: Add "bad" to free tier (Spotify: ads + no offline + lower quality).
           </p>
         </div>
+        <FreemiumTradeoff />
       </div>
     ),
   },
