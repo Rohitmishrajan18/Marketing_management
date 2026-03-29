@@ -34,7 +34,8 @@ export default function App() {
     ],
     test: [
       { id: 'flashcards', label: 'Flashcards' },
-      { id: 'quiz', label: 'Quiz' },
+      { id: 'quiz', label: 'Quick Quiz' },
+      { id: 'mock', label: 'Mock Exam ⚡' },
       { id: 'traps', label: 'Exam Traps' },
     ],
   };
@@ -43,7 +44,6 @@ export default function App() {
   const CurrentComponent = currentPhase?.component;
   const currentSubtabs = subtabs[activePhase] || [];
 
-  // Reset subtab when phase changes
   const handlePhaseChange = (phaseId) => {
     setActivePhase(phaseId);
     const firstSubtab = subtabs[phaseId]?.[0]?.id;
@@ -52,7 +52,6 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gray-950 text-gray-100">
-      {/* Header */}
       <header className="sticky top-0 z-50 bg-gray-900 border-b border-gray-800 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="mb-4">
@@ -60,7 +59,6 @@ export default function App() {
             <p className="text-sm text-gray-400">UC Berkeley Haas | Spring 2026 | Prof. Ganesh Iyer</p>
           </div>
 
-          {/* Search */}
           <input
             type="text"
             placeholder="Search content..."
@@ -70,7 +68,6 @@ export default function App() {
           />
         </div>
 
-        {/* Phase Navigation */}
         <div className="max-w-7xl mx-auto px-4 border-t border-gray-800">
           <div className="flex gap-3 py-3">
             {phases.map(phase => (
@@ -90,7 +87,6 @@ export default function App() {
           </div>
         </div>
 
-        {/* Sub-tab Navigation */}
         {currentSubtabs.length > 0 && (
           <div className="max-w-7xl mx-auto px-4 border-t border-gray-800">
             <div className="flex gap-2 overflow-x-auto py-2">
@@ -112,18 +108,16 @@ export default function App() {
         )}
       </header>
 
-      {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 py-8">
         {CurrentComponent && <CurrentComponent subtab={activeSubtab} search={search} />}
       </main>
 
-      {/* Footer */}
       <footer className="border-t border-gray-800 bg-gray-950 mt-12">
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="bg-gray-900 rounded-lg p-4 border border-gray-800">
             <p className="text-sm text-gray-300 font-semibold mb-2">Final Exam Details:</p>
             <p className="text-sm text-gray-400">
-              Closed book, 2 pages (8.5"x11") help sheet allowed, 2.5 hours, 100 points
+              Closed book · 2 pages (8.5"×11") help sheet · 2.5 hours · 100 points · 3 questions (40/30/30 split)
             </p>
           </div>
           <p className="text-xs text-gray-500 mt-4">EMBA 206 Study Guide | Spring 2026</p>
