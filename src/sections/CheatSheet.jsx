@@ -266,7 +266,7 @@ export default function CheatSheet() {
           display: 'flex', justifyContent: 'space-between', fontSize: '6.5pt', color: '#888' }}>
           <span>EMBA 206 · Spring 2026 · UC Berkeley Haas</span>
           <span>Cases: Kanthal · Get Fit ($501.33) · Dell ($150K vs $66K) · Air Fryer ($114) · Amazon Prime · Spotify · TikTok · Coke Vending · Industrial Pump ($21K EVC)</span>
-          <span>Prof. Ganesh Iyer</span>
+          <span>Built by Rohit Mishra</span>
         </div>
 
       </div>
