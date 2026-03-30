@@ -86,7 +86,7 @@ export default function CheatSheet() {
             EMBA 206 Marketing Management — Final Exam Cheat Sheet
           </span>
           <span style={{ fontSize: '7pt', color: '#555' }}>
-            Haas · Iyer · Spring 2026 · 100 pts (40/30/30) · 2 help pages allowed
+            Haas · Spring 2026 · 100 pts (40/30/30) · 2 help pages allowed · Built by Rohit Mishra
           </span>
         </div>
 

@@ -58,7 +58,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="mb-4">
             <h1 className="text-3xl font-bold text-white">EMBA 206 - Marketing Management</h1>
-            <p className="text-sm text-gray-400">UC Berkeley Haas | Spring 2026 | Prof. Ganesh Iyer</p>
+            <p className="text-sm text-gray-400">UC Berkeley Haas | Spring 2026 | Built by Rohit Mishra</p>
           </div>
 
           <input
