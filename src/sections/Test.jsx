@@ -551,9 +551,195 @@ const mockExamQuestions = [
     correct: 'b',
     explanation: 'The four strategic rationales from class (exam asks for three — any three count):\n\n(1) Viral user base scaling without paid acquisition\nPaid advertising to acquire 600M users at even $1/user = $600M in acquisition spend. Instead, Spotify\'s free tier turns every user into a distribution channel. Users share playlists, recommend songs, invite friends to collaborative playlists. The product spreads itself. This is the core economic logic: free tier replaces paid acquisition with organic growth.\n\n(2) Product learning leads to upgrade conversion\nA user who joins Spotify free at 22 may not be willing to pay $9.99/month immediately. But after 2 years of Spotify shaping their music taste, curating their Discover Weekly, building a library of 200 saved songs — now they\'ve experienced the value. The free tier is a patience strategy. Users who spend time with the product develop willingness to pay that didn\'t exist at acquisition.\n\n(3) Network effects expand the installed base for everyone\nSpotify\'s collaborative playlists, social sharing, and integration with social media create network value. More free users = more shared playlists = more reasons to be on Spotify. The free tier expands the network, which makes premium more valuable.\n\n(4) Switching costs lock users in\nAfter years of Discover Weekly curation, 5,000 saved songs, podcast subscriptions, and a personalized homepage — leaving Spotify means starting over. The free tier creates lock-in that makes premium conversion easier and churn lower.\n\nThe PRIMARY design tradeoff:\nTraffic generation requires a generous free tier (enough value to attract and retain users). Upgrade conversion requires friction (users need a reason to pay). These objectives are in direct conflict:\n• Too generous free tier → 600M users, 0% conversion → no business\n• Too restrictive free tier → 10M users, 80% conversion → no scale\n\nSpotify\'s solution: Add a "bad" to the free tier rather than removing features. Ads, no offline, lower quality — these make premium clearly superior without making free worthless. The free tier remains valuable enough to attract 350M non-payers while the "bads" create genuine motivation to upgrade.',
   },
+  {
+    qNum: '6',
+    topic: 'CLV Levers — Which to Pull',
+    section: 'Customer Lifetime Value',
+    sectionColor: 'text-blue-400',
+    pts: 20,
+    q: 'A SaaS company has 10,000 customers, $500 annual margin per customer, 75% retention rate, and 12% cost of capital. Their CMO wants to run three separate initiatives: (A) a loyalty program expected to raise retention from 75% to 76%, (B) a pricing initiative to raise margin by 1%, and (C) a digital ad campaign to cut acquisition cost by 1%. Rank these initiatives by impact on firm value.',
+    context: 'Use the CLV lever sensitivities from class:\n• 1% improvement in retention → 4.9% improvement in firm value\n• 1% improvement in margin → 1.1% improvement in firm value\n• 1% reduction in acquisition cost → 0.1% improvement in firm value\n\nRetention improves by 1 percentage point (75%→76%), which equals approximately 1.33% improvement in retention rate.',
+    hint: 'The ranking holds regardless of exact numbers. Retention dominates because it appears in BOTH numerator (r^t-1) and denominator (1+i-r) of the CLV formula — a compounding effect. Acquisition cost affects only the one-time upfront cost.',
+    options: [
+      'a) AC reduction > Margin increase > Retention increase (acquisition drives growth)',
+      'b) Margin increase > Retention increase > AC reduction (pricing is most controllable)',
+      'c) Retention increase > Margin increase > AC reduction (4.9% : 1.1% : 0.1% impact ratio)',
+      'd) All three have equal impact on firm value',
+    ],
+    correct: 'c',
+    explanation: 'The CLV lever sensitivities from class are non-negotiable on the exam:\n• +1% Retention → +4.9% firm value\n• +1% Margin → +1.1% firm value\n• −1% Acquisition Cost → +0.1% firm value\n\nRanking: Retention (4.9x) >> Margin (1.1x) >> Acquisition Cost (0.1x)\n\nWhy retention dominates by such a wide margin:\nIn the CLV formula CLV = m × r/(1+i−r), the retention rate r appears in TWO places:\n(1) The numerator r^(t-1) — higher retention means more profit each year\n(2) The denominator (1+i−r) — higher retention reduces the denominator, multiplying all future profits\n\nThis double-compounding effect is why a 1% retention improvement has 49× the impact of a 1% acquisition cost improvement.\n\nPractical implication: Most firms allocate 70-80% of marketing budgets to acquisition. This is economically backwards. The firm should invest in the loyalty program first, pricing second, and only then consider acquisition optimization.\n\nThe retention improvement here (75%→76%) is actually ~1.33% improvement in the rate, making its impact even larger than a clean 1% example.',
+  },
+  {
+    qNum: '7',
+    topic: 'Two Sides of Value — Segment Classification',
+    section: 'Customer Value Management',
+    sectionColor: 'text-violet-400',
+    pts: 20,
+    q: 'A B2B industrial supplier analyzes its customer base. Customer A generates $2M in annual revenue, requires a dedicated account manager, demands weekly custom reporting, gets 15% volume discounts, and has filed 12 support tickets this year. After accounting for service costs, this customer generates $40K net profit. Customer B generates $180K revenue, orders standard products at list price, requires no custom service, and generates $72K net profit. How should the supplier classify and treat each customer using the Two Sides of Value framework?',
+    context: 'Two Sides of Value matrix:\n• x-axis: Customer Experience (how much value the firm CREATES for the customer)\n• y-axis: Customer Profitability (how much value the firm CAPTURES from the customer)\n\nClassify each customer into one of four quadrants: Stars (high/high), Vulnerable (high profit/low experience), Free Riders (high experience/low profit), Lost Cause (low/low).\n\nKey insight: revenue ≠ profitability. The Kanthal case showed that the largest-revenue customers can be the least profitable.',
+    hint: 'Customer A: $2M revenue but only $40K profit — they consume massive service resources. High experience (custom reporting, account manager, discounts), Low profitability → which quadrant?\nCustomer B: $180K revenue, $72K profit, standard service → which quadrant?',
+    options: [
+      'a) Customer A = Star (largest revenue), Customer B = Lost Cause (smallest revenue)',
+      'b) Customer A = Free Rider (high experience/low profit → monetize or reduce service cost), Customer B = Star (high profit/low service cost → invest and grow)',
+      'c) Customer A = Vulnerable (high profit/low experience), Customer B = Free Rider',
+      'd) Both are Stars — any customer generating positive profit should be retained',
+    ],
+    correct: 'b',
+    explanation: 'This question directly mirrors the Kanthal AB case from class.\n\nCustomer A analysis:\n• Revenue: $2M (looks impressive)\n• Net profit: $40K (2% margin — almost nothing after service costs)\n• Experience created: VERY HIGH — dedicated account manager, weekly custom reporting, 15% discounts, active support\n• Value captured: VERY LOW — $40K net profit on $2M revenue\n→ Classification: FREE RIDER\n\nCustomer B analysis:\n• Revenue: $180K (looks small)\n• Net profit: $72K (40% margin — extremely efficient)\n• Experience created: LOW — standard products, list price, no custom service\n• Value captured: HIGH — $72K net profit\n→ Classification: STAR\n\nStrategic prescriptions:\nCustomer A (Free Rider): Two options — (1) Find a monetization path: reduce discounts, charge for custom reporting, apply service fees. (2) Reduce service cost: standardize their ordering to reduce account manager time. If neither works, consider "firing" the customer. They are destroying value relative to their size.\n\nCustomer B (Star): Invest in growing this relationship. Cross-sell, expand the product range they order, deepen the relationship. This is your most profitable customer type.\n\nThe Kanthal lesson: Large revenue customers demanded custom treatment that eroded all their profitability. Small standard customers were the true Stars. The supplier doubled profitability by redirecting resources from large Free Riders to small Stars.',
+  },
+  {
+    qNum: '8',
+    topic: 'Conjoint — Attribute Importance',
+    section: 'Conjoint Analysis',
+    sectionColor: 'text-purple-400',
+    pts: 20,
+    q: 'A conjoint study on noise-canceling headphones produces the following part-worth utilities. Brand: Sony=6.2, Bose=7.8, Apple=8.4. Battery life: 20hr=4.1, 30hr=5.9, 40hr=7.2. Noise canceling: Good=3.5, Excellent=6.0, Best-in-class=7.8. Price: $199=8.5, $249=6.2, $299=4.8, $349=2.1. Which attribute is most important, and what is the relative importance of Price?',
+    context: 'Attribute Importance = MAX utility − MIN utility within that attribute (this is the RANGE).\nThe range measures how much that attribute can swing total consumer utility — a large range = a highly important attribute.\n\nRelative Importance = attribute range ÷ sum of all attribute ranges\n\nCompute range for each attribute first, then total all ranges.',
+    hint: 'Brand range: 8.4 − 6.2 = 2.2\nBattery range: 7.2 − 4.1 = 3.1\nNoise canceling range: 7.8 − 3.5 = 4.3\nPrice range: 8.5 − 2.1 = 6.4\nTotal ranges = 2.2 + 3.1 + 4.3 + 6.4 = 16.0',
+    options: [
+      'a) Brand is most important (highest single utility = 8.4); Price relative importance = 25%',
+      'b) Price is most important (largest range = 6.4); Price relative importance = 40%',
+      'c) Noise canceling is most important (widest performance spread); Price relative importance = 30%',
+      'd) Battery life is most important (most levels tested); Price relative importance = 19%',
+    ],
+    correct: 'b',
+    explanation: 'Step-by-step importance calculation:\n\nStep 1 — Compute each attribute\'s range (MAX − MIN):\n• Brand: 8.4 (Apple) − 6.2 (Sony) = 2.2\n• Battery: 7.2 (40hr) − 4.1 (20hr) = 3.1\n• Noise canceling: 7.8 (Best) − 3.5 (Good) = 4.3\n• Price: 8.5 ($199) − 2.1 ($349) = 6.4 ← LARGEST RANGE\n\nStep 2 — Sum all ranges:\n2.2 + 3.1 + 4.3 + 6.4 = 16.0\n\nStep 3 — Relative importance:\n• Brand: 2.2/16.0 = 13.75%\n• Battery: 3.1/16.0 = 19.4%\n• Noise canceling: 4.3/16.0 = 26.9%\n• Price: 6.4/16.0 = 40.0% ← MOST IMPORTANT\n\nPrice is the most important attribute. It has the largest range (6.4), meaning choosing between the cheapest ($199) and most expensive ($349) option swings consumer utility by 6.4 units — more than any other attribute.\n\nCommon exam trap: Option (a) says Brand is most important because Apple has the highest single utility (8.4). WRONG. Importance is not about which level has the highest number — it\'s about the RANGE. A high-scoring attribute with a narrow range (like Brand at 2.2) matters less than a medium-scoring attribute with a wide range (like Price at 6.4).\n\nImplication for product strategy: When price has 40% relative importance, competing on brand alone (13.75%) is insufficient. Consumers in this category are highly price sensitive — pricing decisions matter more than brand investments.',
+  },
+  {
+    qNum: '9',
+    topic: 'Segmentation — STP Application',
+    section: 'Segmentation, Targeting & Positioning',
+    sectionColor: 'text-cyan-400',
+    pts: 20,
+    q: 'A credit card company is designing its segmentation strategy. Their analyst proposes four possible segmentation bases: (A) Age 25-35 demographic segment, (B) Income over $75K demographic segment, (C) Lifestyle — "young professionals who value experiences" psychographic segment, (D) Behavioral — customers who carry a monthly balance vs. customers who pay in full each month. Which segmentation base is MOST actionable for maximizing CLV, and why?',
+    context: 'The credit card revenue model:\n• Transactors: pay full balance monthly → bank earns only interchange fees (1-2% of purchases)\n• Revolvers: carry a balance → bank earns interest income (15-24% APR) PLUS interchange fees\n• Same product, completely different revenue streams\n\nEvaluate each segmentation basis against two criteria: (1) Does it predict CLV? (2) Is it actionable for strategy?',
+    hint: 'Ask yourself: does knowing someone is "age 25-35" tell you whether they\'ll carry a balance? Does knowing their income tell you their payment behavior? Does knowing their lifestyle tell you their credit usage pattern?\n\nWhich segmentation variable DIRECTLY separates high-CLV from low-CLV customers?',
+    options: [
+      'a) Age 25-35 (demographic) — large, targetable segment with consistent spending patterns',
+      'b) Income over $75K (demographic) — higher income predicts higher spending and lower default risk',
+      'c) "Young professionals who value experiences" (psychographic) — richer insight into spending motivations',
+      'd) Balance carriers vs. full-payers (behavioral) — directly separates high-revenue Revolvers from low-revenue Transactors',
+    ],
+    correct: 'd',
+    explanation: 'This is the core STP lesson from the credit card case in class.\n\nWhy behavioral segmentation wins:\n\nTransactors vs. Revolvers is a behavioral segmentation — it segments by what customers actually DO (payment behavior), not who they are demographically or what they value psychographically.\n\nCLV impact:\n• Revolver CLV: Bank earns 15-24% APR on the carried balance + interchange fees. A customer carrying $5,000/month generates ~$75-100/month in interest alone.\n• Transactor CLV: Bank earns $1-2% interchange only. Same $5,000 spender → $50-100/month, then the balance clears.\n• CLV difference: Revolvers can be 3-5x more valuable than Transactors.\n\nWhy the other options fail:\n• Option (a) Age 25-35: Age doesn\'t predict payment behavior. A 28-year-old with student loans and a 28-year-old trust fund recipient have opposite payment patterns.\n• Option (b) Income $75K+: Higher income is actually associated with LOWER balances (can afford to pay in full), making these customers potentially LESS valuable as Revolvers.\n• Option (c) Lifestyle "experience values": Interesting for creative targeting, but doesn\'t reliably distinguish Transactors from Revolvers. An experience-seeker might pay every month to avoid debt on their travels.\n\nStratagic implication: Banks use this segmentation actively — they offer low intro rates to Transactors specifically to convert them to Revolvers, increasing CLV. The behavioral segment directly maps to the revenue model in a way no demographic or psychographic segment can match.',
+  },
+  {
+    qNum: '10',
+    topic: 'Fear Appeals — Advertising Design',
+    section: 'Advertising Strategy',
+    sectionColor: 'text-orange-400',
+    pts: 20,
+    q: 'A cybersecurity company is designing an ad campaign targeting small business owners about ransomware risk. They have three creative concepts: (A) A calm informational ad listing ransomware statistics and features of their software. (B) A moderate-fear ad showing a small business owner discovering their files are locked, then showing how the software prevented the attack in another business — with a clear call-to-action and 30-day free trial. (C) A high-fear ad with graphic footage of a business destroyed by ransomware, devastating interviews with affected owners, and messaging that "it will happen to you." Which creative approach is most effective, and why?',
+    context: 'Fear appeals follow an inverted-U relationship with effectiveness:\n• Zero/low fear → no motivation to act (audiences tune out, no urgency)\n• Moderate fear → optimal engagement and behavior change\n• High/excessive fear → defensive avoidance (denial, "it won\'t happen to me," change the channel)\n\nKey design principle: fear must always be paired with a SPECIFIC, ACHIEVABLE solution that gives the audience a clear path to safety.',
+    hint: 'Concept A has no fear — people ignore it. Concept C has maximum fear — people feel helpless and avoid. Concept B creates concern without overwhelming, then immediately provides the solution (free trial). This is the optimal inverted-U positioning.',
+    options: [
+      'a) Option A — rational appeals work best for B2B audiences who make analytical decisions',
+      'b) Option C — maximum fear maximizes urgency and drives immediate purchase decisions',
+      'c) Option B — moderate fear creates engagement; pairing with a clear solution converts anxiety into action',
+      'd) Option C is best for awareness, Option A is best for conversion — run sequentially',
+    ],
+    correct: 'c',
+    explanation: 'This is a direct application of the Fear Appeals Inverted-U model.\n\nOption A (No fear — purely rational):\nProblem: In a crowded information environment, a calm informational ad about ransomware statistics gets scrolled past. Small business owners know ransomware is a risk — they need motivation to act NOW, not more information. Without emotional engagement, the rational message doesn\'t overcome inertia.\n\nOption C (Maximum fear):\nThis violates the key principle: too much fear triggers psychological defense mechanisms.\n• Denial: "That won\'t happen to my small business"\n• Avoidance: People change the channel, skip the ad, or mentally disengage\n• Helplessness: When the threat feels unsurvivable, consumers don\'t seek solutions — they freeze\nGraphic footage of destroyed businesses communicates "this is catastrophic and unstoppable," which paradoxically reduces protective behavior.\n\nOption B (Moderate fear + specific solution) — CORRECT:\nThe inverted-U is optimized here:\n• Creates real concern: seeing a locked screen is relatable and immediate\n• Does not overwhelm: the owner discovers the problem but isn\'t destroyed by it\n• Immediately provides a clear, specific, achievable solution: another business that WAS protected, with a 30-day free trial CTA\n• The solution makes the fear actionable — "I can prevent this" rather than "I\'m helpless"\n\nDesign rule for fear appeals: Fear + Specific Solution + Low Barrier to Action = behavior change. Any one of these missing and the ad fails.\n\nOption (d) is wrong because running max-fear awareness ads first would make audiences avoid follow-up ads — you can\'t recover from excessive fear.',
+  },
+  {
+    qNum: '11',
+    topic: 'EVC Calculation',
+    section: 'Pricing Strategy',
+    sectionColor: 'text-red-400',
+    pts: 20,
+    q: 'TechFlow sells industrial data analytics software. The competing product (DataSuite) is priced at $50,000/year per enterprise license. TechFlow\'s platform offers the following differences vs. DataSuite: processes data 3x faster, saving operations teams 200 hours/year at $80/hour; reduces data errors by 40%, preventing an average of $15,000 in annual compliance penalties; but requires 80 hours of IT setup at $100/hour. What is TechFlow\'s EVC, and what is the maximum rational price a customer would pay?',
+    context: 'EVC = Reference Value + Differentiation Value\n• Reference Value = competitor price (DataSuite at $50,000)\n• Differentiation Value = sum of ALL monetary attribute differences (positive = your advantage, negative = your disadvantage)\n\nQuantify each attribute difference in dollar terms:\n1. Speed advantage: 200 hrs × $80/hr = ?\n2. Error reduction: $15,000 compliance savings = ?\n3. Setup cost: 80 hrs × $100/hr = ? (this is a NEGATIVE — customer bears this cost)',
+    hint: 'Diff Value = +$16,000 (speed) + $15,000 (compliance) − $8,000 (setup) = +$23,000\nEVC = $50,000 + $23,000 = $73,000',
+    options: [
+      'a) $50,000 — EVC equals the reference price since competitors set the ceiling',
+      'b) $58,000 — only positive differentiation counts toward EVC',
+      'c) $73,000 — Reference Value ($50K) + net Differentiation Value ($23K)',
+      'd) $81,000 — full sum of all advantages without netting setup cost',
+    ],
+    correct: 'c',
+    explanation: 'EVC calculation step by step:\n\nStep 1 — Reference Value:\nDataSuite price = $50,000. This is what a rational customer pays if they choose the alternative.\n\nStep 2 — Quantify each Differentiation Value component:\n• Speed advantage: 200 hours saved × $80/hour = +$16,000/year\n  (Customer\'s operations team gets 200 hours back. At $80/hr fully loaded cost, that\'s $16K in recovered labor value.)\n\n• Error reduction: 40% fewer compliance errors → prevents $15,000 in annual penalties\n  = +$15,000/year\n\n• Setup cost: 80 hours of IT time × $100/hour = −$8,000\n  (This is a NEGATIVE differentiation value — the customer bears this cost with TechFlow that they don\'t with DataSuite.)\n\nStep 3 — Net Differentiation Value:\n$16,000 + $15,000 − $8,000 = +$23,000\n\nStep 4 — EVC:\nEVC = $50,000 + $23,000 = $73,000\n\nInterpretation: A rational enterprise buyer who understands the full value calculation would pay up to $73,000 for TechFlow before switching to DataSuite at $50,000 becomes more economical.\n\nStrategic pricing zone:\n• Floor = TechFlow\'s cost (not given)\n• Ceiling = EVC = $73,000\n• Actual price might be $60,000-$65,000: gives customer $8-13K in savings vs ceiling (incentive to choose TechFlow), while TechFlow captures $10-15K premium vs DataSuite\n\nWhy option (d) is wrong: Ignoring the setup cost ($8,000) overstates EVC. Differentiation Value includes ALL differences — positive AND negative. A customer doing their own analysis would subtract the setup cost from the value they receive.',
+  },
+  {
+    qNum: '12',
+    topic: 'Promotion ROI — Baseline Trap',
+    section: 'Marketing Analytics',
+    sectionColor: 'text-teal-400',
+    pts: 20,
+    q: 'A beverage brand runs a $200K consumer promotion in December. Sales in December = $2.4M. Average monthly sales for January-November (non-promotion months) = $1.6M. A junior analyst reports ROI = ($800K incremental − $200K cost) / $200K = 300%. The VP of Marketing questions whether the baseline is correct. After running a regression controlling for December seasonality, the estimated baseline is $2.0M. What is the correct promotion ROI?',
+    context: 'Incremental Sales = Actual Sales − Baseline Sales\nROI = (Incremental Revenue − Promotion Cost) / Promotion Cost\n\nThe critical question: what IS the baseline?\n• Naive baseline: average of non-promotion months = $1.6M\n• Regression-adjusted baseline: controls for seasonality, competitor activity, trends = $2.0M\n\nDecember is typically a high-sales month for beverages regardless of promotion. The regression separates the seasonal lift from the promotional lift.',
+    hint: 'Correct baseline = $2.0M (from regression, not $1.6M average)\nTrue incremental = $2.4M − $2.0M = $400K\nTrue ROI = ($400K − $200K) / $200K = ?',
+    options: [
+      'a) 300% — the junior analyst is correct; the average of non-promo months is the right baseline',
+      'b) 200% — using the regression-adjusted baseline of $2.0M gives true incremental of $400K',
+      'c) 100% — the promotion had no real impact beyond seasonal lift',
+      'd) 400% — the full December sales minus the promotion cost is the correct measure',
+    ],
+    correct: 'b',
+    explanation: 'The baseline problem is one of the most important analytics traps in marketing.\n\nNaive calculation (WRONG):\n• Baseline = average of Jan-Nov = $1.6M\n• Incremental = $2.4M − $1.6M = $800K\n• ROI = ($800K − $200K) / $200K = 300%\n\nWhy this is wrong: December is ALREADY a high-sales month due to seasonal demand. Beverages sell more in December regardless of any promotion — holiday gifting, parties, increased consumption. The naive baseline of $1.6M (average of quieter months) doesn\'t reflect what December would have looked like WITHOUT the promotion.\n\nRegression-adjusted calculation (CORRECT):\n• Regression model: Sales = intercept + β₁(promo spend) + β₂(month dummies) + error\n• Setting promo spend = 0 while keeping December month dummy → baseline = $2.0M\n• This $2.0M is the counterfactual: "what December sales would have been with no promotion"\n• True incremental = $2.4M − $2.0M = $400K\n• True ROI = ($400K − $200K) / $200K = 100%\n\nThe promotion still made money (100% ROI is good), but the naive calculation overstated it by 200 percentage points. If the firm used 300% ROI to justify a larger promotion next December, they would significantly overspend.\n\nStockpiling risk: The $400K incremental also includes some forward purchases — consumers who stocked up during the promotion won\'t buy in January. True net incremental may be even lower.\n\nExam takeaway: Baseline MUST come from regression that controls for seasonality, not from averaging non-promotional periods.',
+  },
+  {
+    qNum: '13',
+    topic: 'Full Funnel vs Performance Only',
+    section: 'Advertising Strategy',
+    sectionColor: 'text-orange-400',
+    pts: 20,
+    q: 'A DTC fashion brand has been running only performance ads (Instagram/Facebook conversion campaigns targeting purchase intent). Their cost per acquisition has risen 40% over 18 months and click-through rates have declined. A brand consultant recommends adding brand awareness campaigns (TikTok, YouTube, influencers) at roughly equal budget. The CFO argues this is wasteful — brand ads don\'t generate measurable conversions. Who is right, and what does the evidence suggest about the relationship between brand and performance advertising?',
+    context: 'Full funnel framework from class:\n• Brand advertising (top of funnel): builds awareness, recall, emotional association, consideration\n• Performance advertising (bottom of funnel): captures existing demand, drives conversion\n• These are NOT substitutes — they target different stages of the customer journey\n\nKey evidence: TikTok case study showed that brands running BOTH brand awareness AND performance ads outperformed single-channel campaigns. Brand awareness makes performance ads more effective because the brand is already known when the conversion prompt appears.',
+    hint: 'If only running performance ads, you\'re fishing in an increasingly small, competitive pond — people who already know your brand and have purchase intent. Brand ads expand the pond by building consideration earlier in the journey. Rising CAC is a symptom of depleted top-of-funnel.',
+    options: [
+      'a) CFO is right — brand ads are unmeasurable and DTC brands should focus on performance ROI',
+      'b) Brand consultant is right — rising CAC signals depleted top-of-funnel; brand ads create the awareness that makes performance ads more efficient, producing a 1+1=3 complementarity effect',
+      'c) Both are right — run performance ads for current customers and brand ads only for new markets',
+      'd) Neither — the solution is better targeting algorithms for existing performance campaigns',
+    ],
+    correct: 'b',
+    explanation: 'The CFO\'s position is a common and costly mistake in DTC marketing.\n\nWhy rising CAC signals a structural problem:\nPerformance-only advertising "fishes" from a fixed pool of high-intent consumers — people who already know the brand, have searched for similar products, or are in an active purchase window. As competition grows (more brands bidding on the same intent signals), the cost per click rises and the pool of qualified, unconverted prospects shrinks. This is why CAC rises and CTR falls over 18 months — not because the ads got worse, but because the accessible pool got smaller and more expensive.\n\nWhat brand advertising does:\nBrand campaigns (TikTok awareness, YouTube pre-roll, influencer content) operate at the TOP of the funnel:\n• They create recognition before a purchase need exists\n• They build positive emotional association (crucial for fashion — identity/style brand)\n• They expand the pool of people who will recognize and respond to performance ads later\n\nThe "1+1=3" complementarity effect (from TikTok case):\nWhen someone sees a brand-aware performance ad for a brand they already recognize and positively associate with, they convert at significantly higher rates than cold audiences. Brand advertising "warms" the audience that performance ads then convert. The combination produces results neither campaign achieves alone.\n\nEvidence on CFO\'s concern about measurability:\nBrand advertising IS harder to attribute directly — there\'s no click-to-purchase tracking. But measuring only what\'s easily measurable is the "drunk looking for keys under the lamppost" problem. The 40% CAC increase is the measurable symptom of under-investing in brand. The solution isn\'t better targeting algorithms — it\'s refilling the top of the funnel.\n\nConclusion: Brand consultant is right. The firm should invest in brand awareness now to restore top-of-funnel health and reduce long-term CAC.',
+  },
+  {
+    qNum: '14',
+    topic: 'IC Constraint — Product Design',
+    section: 'Product Line Pricing',
+    sectionColor: 'text-amber-400',
+    pts: 20,
+    q: 'A streaming service has two customer segments: Casual viewers (200 users) with WTP $8/month for Basic and $12/month for Premium. Power users (100 users) with WTP $15/month for Basic and $25/month for Premium. The firm wants to offer a product line. (a) What is the IC-constrained maximum price for Premium? (b) What is the product line monthly profit? (c) Does the product line beat the single-product alternative?',
+    context: 'Step 1: Benchmark single product profit first:\n• Premium at $25 → only power users buy → 100 × $25 = $2,500\n• Premium at $12 → all 300 buy → 300 × $12 = $3,600 ← optimal single product\n\nStep 2: IC constraint for product line:\nP_Premium ≤ WTP_power(Premium) − WTP_power(Basic) + P_Basic\nSet P_Basic = $8 (casual viewers\' WTP)',
+    hint: 'IC: P_Premium ≤ $25 − $15 + $8 = $18\nProduct line: 200 × $8 + 100 × $18 = $1,600 + $1,800 = $3,400\nSingle product optimum = $3,600\nCheck: do casual viewers switch to Premium at $18? WTP = $12 < $18 → No, they cannot afford it. Segmentation holds.',
+    options: [
+      'a) Max Premium = $18; Product line = $3,400/month; Single product ($3,600) wins',
+      'b) Max Premium = $17; Product line = $3,300/month; Product line wins',
+      'c) Max Premium = $18; Product line = $3,600/month; They tie',
+      'd) Max Premium = $25; Product line = $4,100/month; Product line wins',
+    ],
+    correct: 'a',
+    explanation: 'Full product line analysis:\n\nStep 1 — Single product benchmark:\n• Price Premium at $25 → only power users (100) buy → 100 × $25 = $2,500\n• Price Premium at $12 → all 300 buy → 300 × $12 = $3,600 ← OPTIMAL SINGLE PRODUCT\n\nStep 2 — IC constraint:\nPower users must weakly prefer Premium over Basic:\nWTP_power(Premium) − P_Premium ≥ WTP_power(Basic) − P_Basic\n$25 − P_Premium ≥ $15 − $8\n$25 − P_Premium ≥ $7\nP_Premium ≤ $25 − $7 = $18\n\nStep 3 — Product line profit at IC-constrained prices:\n• P_Basic = $8 → 200 casual viewers buy → 200 × $8 = $1,600\n• P_Premium = $18 → 100 power users buy → 100 × $18 = $1,800\n• Total = $3,400/month\n\nStep 4 — Check segmentation integrity:\nDo casual viewers want to upgrade to Premium at $18?\n• Casual WTP for Premium = $12\n• Price = $18\n• $18 > $12 → Casual viewers CANNOT rationalize buying Premium. Segmentation holds. ✓\n\nDo power users switch down to Basic?\n• Power user surplus from Premium: $25 − $18 = $7\n• Power user surplus from Basic: $15 − $8 = $7\n• Equal surplus! At exactly the IC boundary, power users are indifferent. In practice, set Premium slightly below $18 ($17.99) to ensure they prefer Premium.\n\nStep 5 — Compare:\n• Single product: $3,600/month\n• Product line: $3,400/month\n• Single product wins by $200/month\n\nWhy does single product win here? The WTP spread between the two segments for the basic product ($15 vs $8 = $7 gap) forces a $7 IC discount on Premium. That discount costs $7 × 100 power users = $700 in lost revenue, while the product line only gains 200 × $8 = $1,600 from casual viewers. Compare: single product at $12 already captures all 300 users. The market expansion ($1,600 from casual) is offset by the IC discount loss on power users.',
+  },
+  {
+    qNum: '15',
+    topic: 'AI Tools — CLV Lever Mapping',
+    section: 'AI & Marketing Analytics',
+    sectionColor: 'text-teal-400',
+    pts: 20,
+    q: 'An e-commerce company is evaluating four AI investments for their marketing team: (1) A recommendation engine that suggests complementary products after purchase. (2) A churn prediction model that flags customers with declining purchase frequency and triggers a "we miss you" win-back email. (3) A lookalike modeling tool that finds prospects with behavioral profiles similar to their top 10% customers. (4) Dynamic pricing that adjusts prices in real time based on demand signals and competitor pricing. Map each tool to its PRIMARY CLV lever (Acquisition, Retention, or Expansion) and identify which has the highest potential firm value impact.',
+    context: 'CLV levers and their impact on firm value:\n• Retention (+1% → +4.9% firm value): keeping existing customers longer\n• Expansion (+1% margin → +1.1% firm value): getting more from existing customers\n• Acquisition (−1% AC → +0.1% firm value): getting customers more cheaply\n\nMap each AI tool to the lever it primarily activates.',
+    hint: 'Recommendation engine → more purchases from existing customers → which lever?\nChurn prediction → prevents customers from leaving → which lever?\nLookalike modeling → finds better acquisition targets → which lever?\nDynamic pricing → adjusts prices to capture more value → which lever?',
+    options: [
+      'a) All four are Acquisition tools — they all ultimately drive new customer growth',
+      'b) (1)=Expansion, (2)=Retention, (3)=Acquisition, (4)=Expansion/Margin. Highest impact: (2) Churn prediction (Retention lever = 4.9% per 1% improvement)',
+      'c) (1)=Retention, (2)=Acquisition, (3)=Expansion, (4)=Acquisition. Highest impact: (3) Lookalike modeling',
+      'd) (1)=Acquisition, (2)=Retention, (3)=Expansion, (4)=Retention. Highest impact: (1) Recommendation engine',
+    ],
+    correct: 'b',
+    explanation: 'Mapping AI tools to CLV levers:\n\n(1) Recommendation engine → EXPANSION lever\nAmazon\'s recommendation engine (responsible for ~35% of revenue) increases share of wallet from EXISTING customers. It doesn\'t acquire new customers — it gets current customers to buy more (cross-sell, up-sell). This is the Expansion lever: increasing margin m from the existing base.\n\n(2) Churn prediction model → RETENTION lever\nBy identifying customers with declining engagement BEFORE they cancel, the model enables proactive intervention (win-back email, special offer, customer success call). This directly extends the customer relationship — increasing retention rate r. The Retention lever has the highest CLV sensitivity (4.9% firm value per 1% improvement).\n\n(3) Lookalike modeling → ACQUISITION lever\nThis tool finds new prospects who look like your best customers. It doesn\'t touch existing customers at all — it improves the targeting efficiency of acquisition campaigns, effectively reducing acquisition cost AC or improving the quality of acquired customers. This is the Acquisition lever (lowest sensitivity at 0.1%).\n\n(4) Dynamic pricing → EXPANSION lever (primarily)\nReal-time price adjustment based on demand signals captures more value from existing transactions — raising prices when demand is high increases margin m per transaction. This is primarily an Expansion/margin lever, though it also intersects with fairness considerations (the Coke vending case shows the risks).\n\nHighest potential impact: Tool (2) Churn Prediction\nBecause it activates the Retention lever, which at 4.9% firm value per 1% improvement is 49× more impactful than Acquisition (0.1%) and 4.5× more impactful than Expansion (1.1%). A company that can predict churn and prevent even a fraction of it will generate more firm value than any amount of better targeting or price optimization.\n\nExam rule: Always map AI capabilities to CLV levers before evaluating them. The lever determines the value ceiling of the investment.',
+  },
 ];
 
+function pickRandom5() {
+  const shuffled = [...mockExamQuestions].sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, 5);
+}
+
 function MockExam() {
+  const [questions, setQuestions] = useState(() => pickRandom5());
   const [currentQ, setCurrentQ] = useState(0);
   const [answers, setAnswers] = useState({});
   const [answered, setAnswered] = useState({});
@@ -561,9 +747,9 @@ function MockExam() {
   const [streak, setStreak] = useState(0);
   const [maxStreak, setMaxStreak] = useState(0);
 
-  const q = mockExamQuestions[currentQ];
-  const totalPts = mockExamQuestions.reduce((a, q) => a + q.pts, 0);
-  const earnedPts = mockExamQuestions.reduce((a, q, i) => {
+  const q = questions[currentQ];
+  const totalPts = questions.reduce((a, q) => a + q.pts, 0);
+  const earnedPts = questions.reduce((a, q, i) => {
     return answers[i] === q.correct ? a + q.pts : a;
   }, 0);
   const pct = Math.round((earnedPts / totalPts) * 100);
@@ -581,7 +767,7 @@ function MockExam() {
   };
 
   const handleNext = () => {
-    if (currentQ === mockExamQuestions.length - 1) {
+    if (currentQ === questions.length - 1) {
       setFinished(true);
     } else {
       setCurrentQ(q => q + 1);
@@ -589,6 +775,7 @@ function MockExam() {
   };
 
   const handleRestart = () => {
+    setQuestions(pickRandom5());
     setCurrentQ(0); setAnswers({}); setAnswered({});
     setFinished(false); setStreak(0); setMaxStreak(0);
   };
@@ -596,7 +783,7 @@ function MockExam() {
   // Group questions by section
   const sectionProgress = () => {
     const sections = {};
-    mockExamQuestions.forEach((q, i) => {
+    questions.forEach((q, i) => {
       const s = q.section.split(':')[0];
       if (!sections[s]) sections[s] = { total: 0, earned: 0, pts: 0 };
       sections[s].pts += q.pts;
@@ -641,14 +828,15 @@ function MockExam() {
             </div>
           </div>
           <button onClick={handleRestart} className="w-full mt-4 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-semibold">
-            Retake Mock Exam
+            New Random 5 Questions →
           </button>
+          <p className="text-xs text-gray-500 text-center mt-2">Each attempt draws 5 random questions from the 15-question pool</p>
         </Card>
 
         <Card>
           <h3 className="text-white font-semibold mb-3">All Answers Review</h3>
           <div className="space-y-2">
-            {mockExamQuestions.map((mq, i) => (
+            {questions.map((mq, i) => (
               <div key={i} className={`p-3 rounded-lg text-xs ${answers[i] === mq.correct ? 'bg-green-900/20 border border-green-800' : 'bg-red-900/20 border border-red-800'}`}>
                 <p className="text-gray-300 font-medium">{mq.qNum}: {answers[i] === mq.correct ? '✓' : '✗'} ({mq.pts} pts)</p>
                 <p className="text-gray-400 mt-1">{mq.explanation}</p>
@@ -670,7 +858,7 @@ function MockExam() {
       <div className="bg-gray-900 border border-gray-700 rounded-xl p-4">
         <div className="flex justify-between items-center mb-3">
           <div>
-            <p className="text-xs text-gray-400">XMBA 206 · Focused Practice · 5 key concepts · 100 pts</p>
+            <p className="text-xs text-gray-400">EMBA 206 · 5 random questions from 15-question pool · 100 pts</p>
             <p className={`text-sm font-semibold mt-0.5 ${q.sectionColor}`}>{q.section} — {q.topic}</p>
           </div>
           <div className="text-right">
@@ -678,11 +866,11 @@ function MockExam() {
               <StreakBadge streak={streak} />
               <span className="text-blue-400 text-sm font-semibold">{earnedPts}/{totalPts} pts</span>
             </div>
-            <p className="text-gray-400 text-xs mt-1">Q {currentQ + 1} of {mockExamQuestions.length}</p>
+            <p className="text-gray-400 text-xs mt-1">Q {currentQ + 1} of {questions.length}</p>
           </div>
         </div>
         <div className="w-full h-1.5 bg-gray-700 rounded-full">
-          <div className="h-full bg-purple-500 rounded-full transition-all" style={{ width: `${(currentQ / mockExamQuestions.length) * 100}%` }} />
+          <div className="h-full bg-purple-500 rounded-full transition-all" style={{ width: `${(currentQ / questions.length) * 100}%` }} />
         </div>
       </div>
 
@@ -750,7 +938,7 @@ function MockExam() {
               </button>
             ) : (
               <button onClick={handleNext} className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium text-sm">
-                {currentQ === mockExamQuestions.length - 1 ? 'See Final Score →' : 'Next Question →'}
+                {currentQ === questions.length - 1 ? 'See Final Score →' : 'Next Question →'}
               </button>
             )}
           </div>
